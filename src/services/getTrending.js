@@ -5,9 +5,5 @@ export const getTrending = async () => {
     `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
   );
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch trending movies");
-  }
-
   return response.json();
 };

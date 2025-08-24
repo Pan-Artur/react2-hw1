@@ -1,9 +1,9 @@
 import { Trending } from "./Trending/Trending";
 
-export const Home = () => {
+export const Home = ({ onMovieSelect }) => {
   return (
     <main>
-      <Trending />
+      <Trending onMovieSelect={onMovieSelect} />
     </main>
   );
 }

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
 import { getTrending } from "../../../services/getTrending";
 
 import { StyledTrending, StyledList, StyledItem } from "./Trending.styled";
 
-export const Trending = () => {
+export const Trending = ({ onMovieSelect }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -25,8 +27,14 @@ export const Trending = () => {
     <StyledTrending>
       <StyledList>
         {movies.map((movie) => (
-          <StyledItem>
-            <a key={movie.id} href="/">{movie.title}</a>
+          <StyledItem key={movie.id}>
+            <nav>
+              <Link
+                to={`/movies/${movie.id}`}
+              >
+                {movie.title}
+              </Link>
+            </nav>
           </StyledItem>
         ))}
       </StyledList>
