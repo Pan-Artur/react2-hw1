@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
-
 import { getTrending } from "../../../services/getTrending";
 
-import { StyledTrending, StyledList, StyledItem } from "./Trending.styled";
+import { Container } from "../../../components/Container/Container";
 
-export const Trending = ({ onMovieSelect }) => {
+import {
+  StyledTrending,
+  StyledList,
+  StyledItem,
+  StyledPoster,
+  StyledLink,
+  StyledNavigation
+} from "./Trending.styled";
+
+export const Trending = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -25,19 +32,21 @@ export const Trending = ({ onMovieSelect }) => {
 
   return (
     <StyledTrending>
-      <StyledList>
-        {movies.map((movie) => (
-          <StyledItem key={movie.id}>
-            <nav>
-              <Link
-                to={`/movies/${movie.id}`}
-              >
-                {movie.title}
-              </Link>
-            </nav>
-          </StyledItem>
-        ))}
-      </StyledList>
+      <Container>
+        <StyledList>
+          {movies.map((movie) => (
+            <StyledItem key={movie.id}>
+              <StyledPoster
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <StyledNavigation>
+                <StyledLink to={`/movies/${movie.id}`}>{movie.title}</StyledLink>
+              </StyledNavigation>
+            </StyledItem>
+          ))}
+        </StyledList>
+      </Container>
     </StyledTrending>
   );
 };

@@ -12,6 +12,10 @@ import {
 } from "./Movie.styled";
 
 export const Movie = ({ movie, movieId }) => {
+  const countYear = (date) => {
+    return date.slice(0, 4);
+  }
+
   const countVote = (vote) => {
     return `${Math.round(vote * 10)}%`;
   };
@@ -26,7 +30,7 @@ export const Movie = ({ movie, movieId }) => {
           alt={movie.title}
         />
         <StyledDescription>
-          <h2>{movie.title}</h2>
+          <h2>{movie.title} ({countYear(movie.release_date)})</h2>
           <p>{countVote(movie.vote_average)}</p>
           <p>{movie.overview}</p>
           <p>{movieGenres}</p>

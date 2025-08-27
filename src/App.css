@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -45,4 +46,8 @@ ul {
 li {
   padding: 0;
   margin: 0;
+}
+
+a {
+  text-decoration-line: none;
 }
