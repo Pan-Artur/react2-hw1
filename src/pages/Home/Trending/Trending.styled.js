@@ -38,7 +38,7 @@ export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  width: 200px;
   height: 40px;
   font-size: 15px;
   padding: 0 auto 0;
