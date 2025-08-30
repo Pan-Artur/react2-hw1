@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react2-hw1/static/css/main.6d509852.css",
+    "main.js": "/react2-hw1/static/js/main.88fa30df.js",
+    "static/media/cinemate-logo.webp": "/react2-hw1/static/media/cinemate-logo.dd178390e7ef3106bda2.webp",
+    "static/media/default-poster.webp": "/react2-hw1/static/media/default-poster.09114caecde9fb6a22b5.webp",
+    "static/media/default-profile.webp": "/react2-hw1/static/media/default-profile.2ecfb897e9226061832e.webp",
+    "index.html": "/react2-hw1/index.html",
+    "main.6d509852.css.map": "/react2-hw1/static/css/main.6d509852.css.map",
+    "main.88fa30df.js.map": "/react2-hw1/static/js/main.88fa30df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d509852.css",
+    "static/js/main.88fa30df.js"
+  ]
+}
