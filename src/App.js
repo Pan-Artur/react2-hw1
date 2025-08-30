@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { Home } from "./pages/Home/Home";
 import { Movies } from "./pages/Movies/Movies";
+import { Footer } from "./components/Footer/Footer";
 
 import "./App.css";
 
@@ -23,6 +24,7 @@ export const App = () => {
         />
         <Route path="*" element={<Home onMovieSelect={setSelectedMovie} />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

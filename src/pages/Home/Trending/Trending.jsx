@@ -4,8 +4,11 @@ import { getTrending } from "../../../services/getTrending";
 
 import { Container } from "../../../components/Container/Container";
 
+import defaultPoster from "../../../assets/images/default-poster.webp";
+
 import {
   StyledTrending,
+  StyledTitle,
   StyledList,
   StyledItem,
   StyledPoster,
@@ -33,11 +36,12 @@ export const Trending = () => {
   return (
     <StyledTrending>
       <Container>
+        <StyledTitle>Trending today</StyledTitle>
         <StyledList>
           {movies.map((movie) => (
             <StyledItem key={movie.id}>
               <StyledPoster
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : defaultPoster}
                 alt={movie.title}
               />
               <StyledNavigation>

@@ -6,6 +6,8 @@ import { Movie } from "./Movie/Movie";
 
 import { getMovieId } from "../../services/getMovieId";
 
+import { StyledLoading, StyledSpinner, StyledLoadingText } from "./Movies.styled.js";
+
 export const Movies = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -31,9 +33,20 @@ export const Movies = () => {
     }
   }, [movieId]);
 
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
+  if (loading) {
+    return (
+      <StyledLoading>
+        <StyledSpinner />
+        <StyledLoadingText>
+          Loading...
+        </StyledLoadingText>
+      </StyledLoading>
+    );
+  }
 
-  return <main>{movie ? <Movie movie={movie} movieId={movieId} /> : <Searching />}</main>;
+  return (
+    <main>
+      {movie ? <Movie movie={movie} movieId={movieId} /> : <Searching />}
+    </main>
+  );
 };

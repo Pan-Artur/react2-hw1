@@ -15,8 +15,8 @@ export const StyledPagination = styled.div`
     min-width: 36px;
     height: 36px;
     padding: 0 8px;
-    border: 1px solid #ddd;
-    background-color: #fff;
+    border: none;
+    background-color: #f6f6f6ff;
     cursor: pointer;
     border-radius: 4px;
     font-size: 14px;
@@ -28,13 +28,13 @@ export const StyledPagination = styled.div`
 
     &:disabled {
       cursor: not-allowed;
-      opacity: 0.5;
+      opacity: 0.8;
     }
 
     &.active {
-      background-color: #007bff;
-      color: white;
-      border-color: #007bff;
+      background-color: #ffd900;
+      color: #000;
+      border: none;
     }
   }
 `;

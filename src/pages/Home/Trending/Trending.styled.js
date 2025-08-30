@@ -2,7 +2,15 @@ import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 
-export const StyledTrending = styled.section``;
+export const StyledTrending = styled.section`
+  padding: 30px 0;
+  color: #333;
+`;
+
+export const StyledTitle = styled.h1`
+  margin: 0 0 30px 0;
+  font-size: 40px;
+`;
 
 export const StyledList = styled.ul`
   display: grid;
@@ -15,7 +23,7 @@ export const StyledList = styled.ul`
 export const StyledItem = styled.li`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 
-  transition: all 200ms ease;
+  transition: all 300ms ease;
 
   &:hover {
     transform: scale(1.02);
@@ -40,7 +48,7 @@ export const StyledLink = styled(Link)`
   align-items: center;
   width: 200px;
   height: 40px;
-  font-size: 15px;
+  font-size: 13px;
   padding: 0 auto 0;
   color: #333;
 `;

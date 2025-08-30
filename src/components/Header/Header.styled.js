@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const StyledHeader = styled.header`
   background-color: #ffd900;
@@ -16,6 +15,9 @@ export const StyledHeader = styled.header`
 export const StyledLogoBox = styled.a`
   display: flex;
   align-items: center;
+  pointer-events: none;
+  user-select: none;
+  cursor: pointer;
 `;
 
 export const StyledLogo = styled.img`
@@ -27,7 +29,7 @@ export const StyledNavigation = styled.nav`
   gap: 20px;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledNavLink = styled(NavLink)`
   color: #333;
   padding: 10px 0;
   margin: 0 5px;
@@ -36,12 +38,12 @@ export const StyledLink = styled(Link)`
   border-radius: 4px;
   transition: all 0.3s ease;
   position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
 
-  &:hover {
-    color: #333;
-  }
-
-  &:hover::after {
+  &:hover::after,
+  &.active::after {
     content: '';
     position: absolute;
     bottom: -17px;
@@ -63,6 +65,31 @@ export const StyledLink = styled(Link)`
     border-radius: 4px;
     background-color: #333;
     transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom center;
+  }
+`;
+
+export const StyledActiveNavLink = styled.span`
+  color: #333;
+  padding: 10px 0;
+  margin: 0 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #333;
+    transform: scaleX(1);
     transition: transform 0.3s ease;
     transform-origin: bottom center;
   }

@@ -2,8 +2,13 @@ import { useState } from "react";
 
 import { Container } from "../../../components/Container/Container";
 
+import { getSearching } from "../../../services/getSearching";
+
+import defaultPoster from "../../../assets/images/default-poster.webp";
+
 import {
   StyledSearching,
+  StyledTitle,
   StyledInput,
   SearchButton,
   StyledList,
@@ -13,8 +18,6 @@ import {
   StyledLink,
   NoResultsText,
 } from "./Searching.styled";
-
-import { getSearching } from "../../../services/getSearching";
 
 export const Searching = () => {
   const [movies, setMovies] = useState([]);
@@ -28,6 +31,7 @@ export const Searching = () => {
 
     try {
       const data = await getSearching(searchQuery);
+      setSearchQuery("");
       setMovies(data.results);
     } catch (error) {
       console.error(error);
@@ -45,27 +49,33 @@ export const Searching = () => {
   return (
     <StyledSearching>
       <Container>
-        <StyledInput
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Search movies..."
-        />
-        <SearchButton
-          type="button"
-          onClick={handleSearch}
-          disabled={isSearching}
-        >
-          Search
-        </SearchButton>
+        <StyledTitle>Searching today</StyledTitle>
+        <div>
+          <StyledInput
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Search movies..."
+          />
+          <SearchButton
+            type="button"
+            onClick={handleSearch}
+          >
+            Search
+          </SearchButton>
+        </div>
       </Container>
       {movies.length > 0 ? (
         <StyledList>
           {movies.map((movie) => (
             <StyledItem key={movie.id}>
               <StyledPoster
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                    : defaultPoster
+                }
                 alt={movie.title}
               />
               <StyledNavigation>

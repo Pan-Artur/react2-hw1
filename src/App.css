@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -41,6 +44,7 @@
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
@@ -50,4 +54,9 @@ li {
 
 a {
   text-decoration-line: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
 }

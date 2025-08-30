@@ -1,5 +1,7 @@
 import { Container } from "../Container/Container";
 
+import { useLocation } from "react-router-dom";
+
 import headerLogo from "../../assets/images/cinemate-logo.webp";
 
 import {
@@ -7,10 +9,13 @@ import {
   StyledLogoBox,
   StyledLogo,
   StyledNavigation,
-  StyledLink,
+  StyledNavLink,
+  StyledActiveNavLink,
 } from "./Header.styled";
 
 export const Header = () => {
+  const location = useLocation();
+
   return (
     <StyledHeader>
       <Container>
@@ -18,8 +23,17 @@ export const Header = () => {
           <StyledLogo src={headerLogo} alt="CINEMATE" />
         </StyledLogoBox>
         <StyledNavigation>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/movies">Movies</StyledLink>
+          {location.pathname === "/" ? (
+            <StyledActiveNavLink>Home</StyledActiveNavLink>
+          ) : (
+            <StyledNavLink to="/">Home</StyledNavLink>
+          )}
+          
+          {location.pathname.startsWith("/movies") ? (
+            <StyledActiveNavLink>Movies</StyledActiveNavLink>
+          ) : (
+            <StyledNavLink to="/movies">Movies</StyledNavLink>
+          )}
         </StyledNavigation>
       </Container>
     </StyledHeader>

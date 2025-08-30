@@ -3,9 +3,14 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const StyledSearching = styled.section`
-  padding: 20px;
+  padding: 30px 0 30px;
   color: #333;
-  min-height: 100vh;
+  min-height: 100%;
+`;
+
+export const StyledTitle = styled.h1`
+  margin: 0 0 30px 0;
+  font-size: 40px;
 `;
 
 export const StyledList = styled.ul`
@@ -14,12 +19,13 @@ export const StyledList = styled.ul`
   grid-template-rows: repeat(4, 370px);
   justify-content: center;
   gap: 24px;
+  margin: 30px 0 0 0;
 `;
 
 export const StyledItem = styled.li`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 
-  transition: all 200ms ease;
+  transition: all 300ms ease;
 
   &:hover {
     transform: scale(1.02);
@@ -44,7 +50,7 @@ export const StyledLink = styled(Link)`
   align-items: center;
   width: 200px;
   height: 40px;
-  font-size: 15px;
+  font-size: 13px;
   padding: 0 auto 0;
   color: #333;
 `;
@@ -76,7 +82,6 @@ export const SearchButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  opacity: ${props => props.disabled ? 0.7 : 1};
   transition: opacity 0.3s ease;
   
   &:hover:not(:disabled) {
@@ -86,5 +91,16 @@ export const SearchButton = styled.button`
 
 export const NoResultsText = styled.p`
   color: #333;
-  margin-top: 20px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  padding: 20px;
+  border: solid 2px #ffd900;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  transition: all 0.3s ease;
 `;

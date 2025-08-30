@@ -1,14 +1,19 @@
 import { Link, Routes, Route } from "react-router-dom";
 
 import { Cast } from "./Cast/Cast";
+
 import { Reviews } from "./Reviews/Reviews";
 
+import defaultPoster from "../../../assets/images/default-poster.webp";
 import {
   StyledMovie,
   StyledCouple,
   StyledPoster,
   StyledDescription,
+  StyledOverview,
+  StyledGenres,
   StyledManagment,
+  StyledVote,
 } from "./Movie.styled";
 
 export const Movie = ({ movie, movieId }) => {
@@ -20,20 +25,37 @@ export const Movie = ({ movie, movieId }) => {
     return `${Math.round(vote * 10)}%`;
   };
 
+  const getVoteColor = (vote) => {
+    const percentage = Math.round(vote * 10);
+    
+    if (percentage >= 0 && percentage < 25) {
+      return '#ff4d4d';
+    } else if (percentage >= 25 && percentage < 50) {
+      return '#fea348';
+    } else if (percentage >= 50 && percentage < 75) {
+      return '#ffd900';
+    } else if (percentage >= 75 && percentage <= 100) {
+      return '#3bff3b';
+    }
+    return '#000';
+  };
+
   const movieGenres = movie.genres.map((genre) => genre.name).join(", ");
 
   return (
     <StyledMovie>
       <StyledCouple>
         <StyledPoster
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : defaultPoster}
           alt={movie.title}
         />
         <StyledDescription>
           <h2>{movie.title} ({countYear(movie.release_date)})</h2>
-          <p>{countVote(movie.vote_average)}</p>
-          <p>{movie.overview}</p>
-          <p>{movieGenres}</p>
+          <StyledVote color={getVoteColor(movie.vote_average)}>
+            {countVote(movie.vote_average)}
+          </StyledVote>
+          <StyledOverview><span>Overview:</span><p>{movie.overview}</p></StyledOverview>
+          <StyledGenres><span>Genres:</span><p>{movieGenres}</p></StyledGenres>
         </StyledDescription>
       </StyledCouple>
       <StyledManagment>
