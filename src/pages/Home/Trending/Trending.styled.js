@@ -46,9 +46,9 @@ export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 auto 0;
   width: 200px;
   height: 40px;
   font-size: 13px;
-  padding: 0 auto 0;
   color: #333;
 `;
