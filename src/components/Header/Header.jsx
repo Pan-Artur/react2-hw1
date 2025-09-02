@@ -20,7 +20,7 @@ export const Header = () => {
     <StyledHeader>
       <Container>
         <StyledLogoBox href="/">
-          <StyledLogo src={headerLogo} alt="CINEMATE" />
+          <StyledLogo src={headerLogo} alt="CineMate logo" />
         </StyledLogoBox>
         <StyledNavigation>
           {location.pathname === "/" ? (
