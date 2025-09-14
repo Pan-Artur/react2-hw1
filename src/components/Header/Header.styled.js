@@ -46,7 +46,7 @@ export const StyledNavLink = styled(NavLink)`
   &.active::after {
     content: '';
     position: absolute;
-    bottom: -17px;
+    bottom: -18px;
     left: 0;
     width: 100%;
     height: 4px;
@@ -58,7 +58,7 @@ export const StyledNavLink = styled(NavLink)`
   &::after {
     content: '';
     position: absolute;
-    bottom: -17px;
+    bottom: -18px;
     left: 0;
     width: 100%;
     height: 4px;
@@ -83,7 +83,7 @@ export const StyledActiveNavLink = styled.span`
   &::after {
     content: '';
     position: absolute;
-    bottom: -17px;
+    bottom: -18px;
     left: 0;
     width: 100%;
     height: 4px;

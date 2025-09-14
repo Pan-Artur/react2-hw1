@@ -6,7 +6,7 @@ export const StyledPagination = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 30px;
+  padding: 0 0 30px 0;
 
   button {
     display: flex;

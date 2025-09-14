@@ -1,10 +1,7 @@
-import { Link, Routes, Route } from "react-router-dom";
-
-import { Cast } from "./Cast/Cast";
-
-import { Reviews } from "./Reviews/Reviews";
+import { Link, Outlet } from "react-router-dom";
 
 import defaultPoster from "../../../assets/images/default-poster.webp";
+
 import {
   StyledMovie,
   StyledCouple,
@@ -16,7 +13,11 @@ import {
   StyledVote,
 } from "./Movie.styled";
 
-export const Movie = ({ movie, movieId }) => {
+const Movie = ({ movie }) => {
+  if (!movie) {
+    return;
+  }
+
   const countYear = (date) => {
     return date.slice(0, 4);
   }
@@ -69,10 +70,9 @@ export const Movie = ({ movie, movieId }) => {
           </li>
         </ul>
       </StyledManagment>
-      <Routes>
-        <Route path="cast" element={ <Cast movieId={movieId} /> } />
-        <Route path="reviews" element={ <Reviews movieId={movieId} /> } />
-      </Routes>
+      <Outlet />
     </StyledMovie>
   );
 };
+
+export default Movie;

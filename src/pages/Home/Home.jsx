@@ -1,9 +1,11 @@
 import { Trending } from "./Trending/Trending";
 
-export const Home = ({ onMovieSelect }) => {
+const Home = ({ onMovieSelect }) => {
   return (
     <main>
       <Trending onMovieSelect={onMovieSelect} />
     </main>
   );
 }
+
+export default Home;

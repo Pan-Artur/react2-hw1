@@ -1,16 +1,17 @@
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { Pagination } from "../../../../components/Pagination/Pagination";
-
 import { getMovieCast } from "../../../../services/getMovieCast";
-
 import defaultProfile from "../../../../assets/images/default-profile.webp"
 
 import { StyledCast, StyledProfile } from "./Cast.styled";
 
-export const Cast = ({ movieId }) => {
+const Cast = () => {
+  const { movieId } = useParams();
   const [movieCast, setMovieCast] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -21,15 +22,18 @@ export const Cast = ({ movieId }) => {
           setMovieCast(castDetails.cast || []);
         } catch (error) {
           console.error(error);
+        } finally {
+          setLoading(false);
         }
       };
 
       fetchCast();
+    } else {
+      setLoading(false);
     }
   }, [movieId]);
 
   const totalPages = Math.ceil(movieCast.length / itemsPerPage);
-
   const currentCast = movieCast.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -68,3 +72,5 @@ export const Cast = ({ movieId }) => {
     </div>
   );
 };
+
+export default Cast;

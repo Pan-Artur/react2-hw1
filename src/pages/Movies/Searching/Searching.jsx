@@ -19,7 +19,7 @@ import {
   NoResultsText,
 } from "./Searching.styled";
 
-export const Searching = () => {
+const Searching = () => {
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
@@ -92,3 +92,5 @@ export const Searching = () => {
     </StyledSearching>
   );
 };
+
+export default Searching;
