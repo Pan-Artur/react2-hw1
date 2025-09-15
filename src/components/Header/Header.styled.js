@@ -12,11 +12,9 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const StyledLogoBox = styled.a`
+export const StyledLogoBox = styled(NavLink)`
   display: flex;
   align-items: center;
-  pointer-events: none;
-  user-select: none;
   cursor: pointer;
 `;
 
@@ -65,31 +63,6 @@ export const StyledNavLink = styled(NavLink)`
     border-radius: 4px;
     background-color: #333;
     transform: scaleX(0);
-    transition: transform 0.3s ease;
-    transform-origin: bottom center;
-  }
-`;
-
-export const StyledActiveNavLink = styled.span`
-  color: #333;
-  padding: 10px 0;
-  margin: 0 5px;
-  font-size: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  position: relative;
-  user-select: none;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -18px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    border-radius: 4px;
-    background-color: #333;
-    transform: scaleX(1);
     transition: transform 0.3s ease;
     transform-origin: bottom center;
   }

@@ -16,7 +16,6 @@ export const StyledTitle = styled.h1`
 export const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(5, 220px);
-  grid-template-rows: repeat(4, 370px);
   justify-content: center;
   gap: 24px;
   margin: 30px 0 0 0;
