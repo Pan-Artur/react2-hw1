@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
+import { NotFound } from "./components/NotFound/NotFound";
 
 import { Loader } from "./components/Loader/Loader";
 
@@ -27,7 +28,7 @@ const App = () => {
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>
