@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-// Стилізовані компоненти для сторінки 404
 export const NotFoundContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,7 +8,6 @@ export const NotFoundContainer = styled.div`
   justify-content: center;
   min-height: 70vh;
   padding: 40px 20px;
-  background-color: #000;
   color: #ffd900;
   text-align: center;
 `;
@@ -27,9 +25,9 @@ export const NotFoundTitle = styled.h1`
 `;
 
 export const NotFoundSubtitle = styled.h2`
-  font-size: 28px;
+  font-size: 34px;
   margin-bottom: 20px;
-  color: #fff;
+  color: #333;
   
   @media (max-width: 768px) {
     font-size: 22px;
@@ -38,8 +36,8 @@ export const NotFoundSubtitle = styled.h2`
 
 export const NotFoundText = styled.p`
   font-size: 18px;
-  margin-bottom: 30px;
-  max-width: 600px;
+  margin: 0 auto 30px;
+  max-width: 450px;
   line-height: 1.6;
   color: #ccc;
 `;
@@ -54,7 +52,7 @@ export const FilmReel = styled.div`
     content: '';
     position: absolute;
     width: 40px;
-    height: 200px;
+    height: 180px;
     background: repeating-linear-gradient(
       to bottom,
       #000,
@@ -71,6 +69,7 @@ export const FilmReel = styled.div`
   
   &::after {
     right: 0;
+    bottom: 20px;
   }
 `;
 
@@ -113,18 +112,14 @@ export const HomeButton = styled(NavLink)`
   display: inline-block;
   padding: 12px 30px;
   background-color: #ffd900;
-  color: #000;
+  color: #333;
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 4px;
   transition: all 0.3s ease;
-  border: 2px solid #ffd900;
   
   &:hover {
-    background-color: transparent;
-    color: #ffd900;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
+    transform: scale(1.05);
   }
 `;
