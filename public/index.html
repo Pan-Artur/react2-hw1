@@ -14,11 +14,14 @@
     <title>CineMate</title>
     <base href="/react2-hw1/" />
     <script>
-      (function(){
+      (function () {
         var redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
         if (redirect && redirect != location.href) {
-          history.replaceState(null, null, redirect);
+          var targetPath = redirect.includes("/react2-hw1")
+            ? redirect
+            : "/react2-hw1" + redirect;
+          history.replaceState(null, null, targetPath);
         }
       })();
     </script>
