@@ -116,7 +116,7 @@ export const HomeButton = styled(NavLink)`
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: all 0.3s ease;
   
   &:hover {
